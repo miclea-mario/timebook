@@ -32,3 +32,4 @@ router.get('/identity/:id', authorize('admin'), Identity.readOne);
 router.put('/identity/:id/change-password', authorize('admin', 'user'), Identity.changePassword);
 
 router.get('/rankings', authenticate, Identity.rankings);
+router.put('/identity/:id/points', authorize('admin', 'user'), Identity.addPoints);

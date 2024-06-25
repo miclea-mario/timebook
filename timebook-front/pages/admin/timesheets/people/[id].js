@@ -20,9 +20,11 @@ const Page = ({ id }) => {
   const [selectedProject, setSelectedProject] = useState({});
 
   const [options, setOptions] = useState({
-    userId: id,
     order: 'date',
+    user: '',
+    project: '',
   });
+  
   const { data, status, refetch, ...rest } = useInfiniteQuery(`activities`, options);
 
   return (

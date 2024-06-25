@@ -13,6 +13,7 @@ const remove = require('./remove');
 const reset = require('./reset');
 const update = require('./update');
 const rankings = require('./rankings');
+const addPoints = require('./add-points');
 
 module.exports = {
   changePassword,
@@ -30,4 +31,5 @@ module.exports = {
   reset,
   update,
   rankings,
+  addPoints,
 };

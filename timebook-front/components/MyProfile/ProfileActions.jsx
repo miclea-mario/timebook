@@ -20,18 +20,6 @@ const ProfileActions = ({ id, data, show, forTechnicalPeople, ...props }) => {
         >
           Parolă
         </div>
-        {forTechnicalPeople && (
-          <div
-            className={classnames(
-              'px-3 cursor-pointer transition pb-1 -mb-0.5',
-              action === 'actions' &&
-                'border-b-2 text-primary font-medium border-primary dark:text-white dark:border-b-sky-500'
-            )}
-            onClick={() => setAction('actions')}
-          >
-            Actiuni
-          </div>
-        )}
         {data.points > 0 && (
           <div
             className={classnames(
@@ -42,6 +30,18 @@ const ProfileActions = ({ id, data, show, forTechnicalPeople, ...props }) => {
             onClick={() => setAction('points')}
           >
             Puncte
+          </div>
+        )}
+        {forTechnicalPeople && (
+          <div
+            className={classnames(
+              'px-3 cursor-pointer transition pb-1 -mb-0.5',
+              action === 'actions' &&
+                'border-b-2 text-primary font-medium border-primary dark:text-white dark:border-b-sky-500'
+            )}
+            onClick={() => setAction('actions')}
+          >
+            Actiuni
           </div>
         )}
       </div>

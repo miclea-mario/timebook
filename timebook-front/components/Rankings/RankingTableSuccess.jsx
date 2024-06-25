@@ -1,7 +1,7 @@
 import { MessageNoRows } from '../LogbookTable';
 import RankingTableHead from './RankingTableHead';
 
-const RankingTableSuccess = ({ data, refetch }) => {
+const RankingTableSuccess = ({ data }) => {
   const getStarColor = (index) => {
     switch (index) {
       case 0:

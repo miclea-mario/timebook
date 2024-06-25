@@ -14,4 +14,6 @@ const changePassword = async (id, data) => {
 
 const activatePerson = async (id) => axiosAuth.put(`/identities/${id}`, { active: true });
 
-export { deletePerson, createPerson, updatePerson, changePassword, activatePerson, createAdmin };
+const addUserPoints = async (id, data) => axiosAuth.put(`/identity/${id}/points`, data);
+
+export { deletePerson, createPerson, updatePerson, changePassword, activatePerson, createAdmin, addUserPoints };

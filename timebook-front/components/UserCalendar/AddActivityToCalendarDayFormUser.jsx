@@ -8,11 +8,13 @@ import SelectProject from '../Fields/SelectProject';
 import { createActivity } from '../../api/activities';
 import { toaster } from '../../lib';
 import { useState } from 'react';
+import { addUserPoints } from '../../api/persons';
 
 const AddActivityToCalendarDayFormUser = ({ hide, date, refetch, id }) => {
   const handleSubmit = async (values, resetForm, setFieldValue) => {
     try {
       await createActivity(values);
+      await addUserPoints(id);
       toaster.success('Activitatea a fost adaugată');
       refetch();
       if (checkbox) {

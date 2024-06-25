@@ -4,13 +4,14 @@ import getBadges from '../../functions/badges';
 import { classnames } from '../../lib';
 import UserInitialsAvatar from '../UserInitialsAvatar';
 import Badges from './Badges';
+import Plural from '../Plural';
 
 const MyProfileSuccess = ({ data }) => {
   const badgesData = getBadges(data);
 
   return (
     <div
-      className={classnames( 
+      className={classnames(
         'flex flex-col items-center justify-center gap-6 bg-white rounded-xl shadow py-9 w-full md:w-96 h-full dark:bg-[#131b30]'
       )}
     >
@@ -20,21 +21,27 @@ const MyProfileSuccess = ({ data }) => {
           backgroundColor={data.active ? 'bg-secondary' : 'bg-accent'}
         />
         <div className="flex flex-col items-center">
-          <p className="text-lg font-semibold dark:text-white">{data.first_name + ' ' + data.last_name}</p>
+          <p className="text-lg font-semibold dark:text-white">
+            {data.first_name + ' ' + data.last_name}
+          </p>
           <p className="text-gray-500 dark:text-slate-400">{data.job}</p>
         </div>
       </div>
       <Badges badges={badgesData} />
       <div className="flex flex-col divide-y-2 dark:divide-slate-700">
-      <div className="flex items-center py-2">
-          <i
-            className={classnames(
-              'fa-solid fa-star mr-2 text-xl',
-              data.active ? 'text-secondary' : 'text-accent'
-            )}
-          ></i>
-          <p className="dark:text-white">{data.points} puncte</p>
-        </div>
+        {data.points > 0 && (
+          <div className="flex items-center py-2">
+            <i
+              className={classnames(
+                'fa-solid fa-star mr-2 text-xl',
+                data.active ? 'text-secondary' : 'text-accent'
+              )}
+            ></i>
+            <p className="dark:text-white">
+              <Plural count={data.points} one="punct" many="puncte" />
+            </p>
+          </div>
+        )}
         <div className="flex items-center py-2">
           <i
             className={classnames(
