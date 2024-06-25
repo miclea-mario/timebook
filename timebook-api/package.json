@@ -1,0 +1,53 @@
+{
+  "name": "express-mongo-api-starter",
+  "version": "0.8.1",
+  "description": "Starter for Node Express API projects with Mongo database",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./server",
+    "start": "node ./server",
+    "seed": "node ./db/seed",
+    "seed-demo": "node ./db/demo/seed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "mongo",
+    "mongodb",
+    "api starter"
+  ],
+  "author": "victorocna <victor@chesscoders.com> (https://chesscoders.com)",
+  "license": "MIT",
+  "engines": {
+    "npm": ">= 7",
+    "node": "<= 20"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cron": "^2.4.1",
+    "date-fns": "^2.23.0",
+    "dotenv": "^16.3.1",
+    "exceljs": "^4.3.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-goodies": "^1.0.7",
+    "handlebars": "^4.7.8",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "jszip": "^3.10.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.8",
+    "pino": "^6.13.1",
+    "postmark": "^4.0.2",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^3.0.1",
+    "pino-pretty": "^4.8.0",
+    "prettier": "^2.3.2"
+  }
+}

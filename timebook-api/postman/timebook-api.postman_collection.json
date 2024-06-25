@@ -1,0 +1,1358 @@
+{
+	"info": {
+		"_postman_id": "eb05f584-c026-4ba9-ab47-4b63ce4842ca",
+		"name": "timebook-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26678725"
+	},
+	"item": [
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"jwt\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"michael@email.com\",\n    \"password\": \"supersecretpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"michael@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/forgot",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"supersecretpassw0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/reset/{{hash}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reset",
+								"{{hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Many",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/identities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"identities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"user\",\r\n    \"email\":\"something7@gmail.com\",\r\n    \"password\":\"somepassword\",\r\n    \"first_name\":\"firstname1\",\r\n    \"last_name\":\"lastname1\",\r\n    \"birthday\":\"2000-03-02\",\r\n    \"job\":\"develpoer1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/identities/{{identity-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"identities",
+								"{{identity-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/identities/{{identity-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"identities",
+								"{{identity-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Identity/{{identity-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Identity",
+								"{{identity-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newPassword\": \"supersecret\",\n  \"oldPassword\": \"supersecretpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/identity/{{identity-id}}/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"identity",
+								"{{identity-id}}",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwt}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Read Many",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/projects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Project-7\",\r\n      \"active\": \"true\",\r\n      \"important\": \"true\",\r\n      \"urgent\": \"false\",\r\n      \"description\": \"Description for project 1\",\r\n      \"status\": \"In progress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/projects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/projects/{{project_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"projects",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"New Project Name2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/projects/{{project_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"projects",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/projects/{{project_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"projects",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activity",
+			"item": [
+				{
+					"name": "Read one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/activities/{{activity_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"{{activity_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2000-03-23\",\r\n    \"duration\":100,\r\n    \"project\":{\r\n        \"_id\":\"62fcd1fb603bc91594365daf\"\r\n    },\r\n    \"description\":\"Activity 7 description\",\r\n    \"editedBy\": {\r\n        \"_id\":\"62fcd1fb603bc91594365dab\"\r\n    },\r\n    \"user\": {\r\n            \"_id\": \"62fe145fb58e9044208ff0d9\",\r\n            \"email\": \"pam@email.com\"\r\n        },\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/activities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/activities/{{activity_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"{{activity_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"duration\":700,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/activities/{{activity_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"{{activity_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Many",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/activities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read For Calendar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/activities/calendar?from=2022-10-01&to=2022-10-31",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"calendar"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2022-10-01"
+								},
+								{
+									"key": "to",
+									"value": "2022-10-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Many",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_ids\": [\r\n        \"63231d7e8082bffac17ff589\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/activities/delete-many",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"delete-many"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"duration\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/activities/{{activity_id}}/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"{{activity_id}}",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Update activity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"duration\":300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/activities/{{activity_id}}/admin/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"activities",
+								"{{activity_id}}",
+								"admin",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch delete activities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_ids\": [\r\n        \"6304d3fcc11ebe3fecbdbed5\",\r\n        \"6304d3fcc11ebe3fecbdbed6\",\r\n        \"6304d3fcc11ebe3fecbdbed7\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/activities/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"activities",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch move activities",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_ids\": [\r\n        \"6324298b0639720760e8be34\",\r\n        \"6324298b0639720760e8be35\"\r\n    ],\r\n    \"newProject\": \"6324298b0639720760e8be2a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/activities/move",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"activities",
+								"move"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/activities/export?projectId={{project_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"activities",
+								"export"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{project_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "Project Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/stats/project/{{project-id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"stats",
+								"project",
+								"{{project-id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "People Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/stats/people/64ede08126058053b487c53b?from=2023-08-01&to=2023-08-26",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"stats",
+								"people",
+								"64ede08126058053b487c53b"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2023-08-01"
+								},
+								{
+									"key": "to",
+									"value": "2023-08-26"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feedback",
+			"item": [
+				{
+					"name": "Read Many",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My Feedback\",\n    \"type\": \"improvement\",\n    \"description\": \"This is a feedback description. Created from Postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update (solve)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"solved\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback/{{feedback-id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback",
+								"{{feedback-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vacation",
+			"item": [
+				{
+					"name": "Requests",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"startDate\": \"2022-11-07\",\n    \"endDate\": \"2022-11-09\",\n    \"description\": \"From Postman yet again, but in the future\",\n    \"user\": \"632456df9ba5c72932f67bc2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vacation-requests",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-requests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vacation-requests",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-requests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vacation-request/{{vacation-request-id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-request",
+										"{{vacation-request-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vacation-requests/{{vacation-request-id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-requests",
+										"{{vacation-request-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"approved\",\n    \"approved_duration\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vacation-requests/{{vacation-id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-requests",
+										"{{vacation-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deny",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"rejected\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vacation-requests/{{vacation-request-id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-requests",
+										"{{vacation-request-id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transactions",
+					"item": [
+						{
+							"name": "Read Many",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vacation-transactions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-transactions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"year\": 2022,\n    \"user\": \"632456df9ba5c72932f67bc2\",\n    \"amount\": -5,\n    \"description\": \"approved vacation request\",\n    \"type\": \"vacation-approved\",\n    \"vacationRequest\": \"6363be7057b8fa8bdbca61d3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vacation-transaction",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-transaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vacation-transactions/{{vacation-transaction-id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vacation-transactions",
+										"{{vacation-transaction-id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Poll",
+			"item": [
+				{
+					"name": "Read Many",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/polls",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"polls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/polls/{{poll_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"polls",
+								"{{poll_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create poll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Potential programming language for IT firm\",\r\n    \"description\":\"Description for programming growth and expansion\",\r\n    \"priority\": \"high\",\r\n    \"question\":\"Which programming language do you think holds the most potential for our IT firm's growth and expansion?\",\r\n    \"totalVotes\": 0,\r\n    \"status\":\"approved\",\r\n    \"active\":true,\r\n    \"options\": [\"Javascript\",\"Java\",\"Assembly\"],\r\n    \"createdBy\": {\r\n            \"_id\": \"64d5dc39b0a5ad3ef4dc73e3\",\r\n            \"first_name\": \"Michael\",\r\n            \"last_name\": \"Scott\"\r\n        },\r\n    \"daysUntilExpire\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/polls",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"polls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"options\": [\r\n        {\r\n            \"answer\": \"Javascript\",\r\n            \"votes\": 0,\r\n            \"voters\":[]\r\n        },\r\n        {\r\n            \"answer\": \"Java\",\r\n            \"votes\": 0,\r\n            \"voters\":[]\r\n        },\r\n        {\r\n            \"answer\": \"Assembly\",\r\n            \"votes\": 0,\r\n            \"voters\":[]\r\n        }\r\n    ],\r\n    \"title\": \"Potential programming language for IT firm\",\r\n    \"description\":\"\",\r\n    \"priority\": \"low\",\r\n    \"question\": \"Which programming language do you think holds the most potential for our IT firm's growth and expansion?\",\r\n    \"totalVotes\": 0,\r\n    \"status\":\"pending\",\r\n    \"active\":true,\r\n     \"createdBy\": {\r\n            \"_id\": \"64d5dc39b0a5ad3ef4dc73e3\",\r\n            \"first_name\": \"Michael\",\r\n            \"last_name\": \"Scott\"\r\n        },\r\n    \"createdAt\": \"2023-08-02T07:45:50.576Z\",\r\n    \"hasVoted\":false,\r\n    \"__v\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answer\":\"64ca5910d5dfbd8358b3b900\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/polls/{{poll_id}}/vote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"polls",
+								"{{poll_id}}",
+								"vote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}/activate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}/deactivate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}/approve",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/polls/{{poll_id}}/reject",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"polls",
+								"{{poll_id}}",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:9000"
+		},
+		{
+			"key": "jwt",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3NDQwMWFjLThlMTgtNDkzMC05YzM3LWRkNzMyZWRiOTMzYyIsIm5hbWUiOiJNaWNoYWVsIFNjb3R0IiwiZW1haWwiOiJtaWNoYWVsQGVtYWlsLmNvbSIsImlhdCI6MTYxNDUxODIzOSwiZXhwIjoxNjE0NTE5MTM5fQ.aybxWo7tCATpU8jbBjgYUEg5LYP_gPdfWDi_9kE01iM"
+		},
+		{
+			"key": "hash",
+			"value": "79euqsq7et9o6zcy86fas"
+		},
+		{
+			"key": "poll_id",
+			"value": "64df3d22e1072e26ec095ca1"
+		},
+		{
+			"key": "identity-id",
+			"value": "64df4842fcdd4b1c50d6973b"
+		}
+	]
+}
